@@ -1,4 +1,5 @@
 import bpy
+from . import auto_exr_pass_setup
 
 class AutoEXRPassSetupPanel(bpy.types.Panel):
     bl_label = "Auto EXR Pass Setup"
