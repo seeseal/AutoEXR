@@ -25,4 +25,3 @@ def check_for_update():
     
     if latest_version_info and latest_version_info['version'] != current_version:
         notify_update_available(latest_version_info)
-
