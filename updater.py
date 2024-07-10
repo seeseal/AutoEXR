@@ -2,7 +2,7 @@ import bpy
 import requests
 from .version import version
 
-UPDATE_URL = "https://raw.githubusercontent.com/yourusername/my_custom_addon/main/addon_version.json"  # Replace with your URL
+UPDATE_URL = "UPDATE_URL = "https://raw.githubusercontent.com/seeseal/AutoEXR/main/addon_version.json"  # Replace with your URL
 
 def get_latest_version_info():
     try:
