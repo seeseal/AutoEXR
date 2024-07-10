@@ -1,21 +1,32 @@
 import bpy
 
-class OBJECT_OT_add_cube(bpy.types.Operator):
-    bl_idname = "mesh.add_cube"
-    bl_label = "Add Cube"
-    bl_options = {'REGISTER', 'UNDO'}
-
-    def execute(self, context):
-        bpy.ops.mesh.primitive_cube_add(size=2, enter_editmode=False, align='WORLD', location=(0, 0, 0))
-        return {'FINISHED'}
-
-class UpdateNotifierPanel(bpy.types.Panel):
-    bl_label = "Update Notifier"
-    bl_idname = "VIEW3D_PT_update_notifier"
+class AutoEXRPassSetupPanel(bpy.types.Panel):
+    bl_label = "Auto EXR Pass Setup"
+    bl_idname = "RENDER_PT_auto_exr_pass_setup"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = 'Tool'
 
     def draw(self, context):
         layout = self.layout
-        layout.operator("mesh.add_cube", text="Add Cube")
+        layout.operator("render.auto_exr_pass_setup", text="Setup EXR Passes")
+
+class AutoEXRPassSetupErrorOperator(bpy.types.Operator):
+    bl_idname = "render.auto_exr_pass_setup_error"
+    bl_label = "Auto EXR Pass Setup Error"
+
+    def execute(self, context):
+        self.report({'ERROR'}, "Access is denied: Please save the file in a different location.")
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        self.execute(context)
+        return {'FINISHED'}
+
+class RENDER_OT_auto_exr_pass_setup(bpy.types.Operator):
+    bl_idname = "render.auto_exr_pass_setup"
+    bl_label = "Auto EXR Pass Setup"
+
+    def execute(self, context):
+        auto_exr_pass_setup()
+        return {'FINISHED'}
