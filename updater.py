@@ -2,7 +2,7 @@ import bpy
 import requests
 from .version import version
 
-UPDATE_URL = "UPDATE_URL = "https://raw.githubusercontent.com/seeseal/AutoEXR/main/addon_version.json"  # Replace with your URL
+UPDATE_URL = "https://raw.githubusercontent.com/seeseal/AutoEXR/main/addon_version.json"  # Replace with your URL
 
 def get_latest_version_info():
     try:
@@ -14,7 +14,7 @@ def get_latest_version_info():
     return None
 
 def notify_update_available(latest_version):
-    message = f"A new version {latest_version['version']} of My Custom Addon is available. Download it from {latest_version['download_url']}."
+    message = f"A new version {latest_version['version']} of Auto EXR Pass Setup is available. Download it from {latest_version['download_url']}."
     def draw(self, context):
         self.layout.label(text=message)
     bpy.context.window_manager.popup_menu(draw, title="Update Available", icon='INFO')
