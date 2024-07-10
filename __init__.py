@@ -11,8 +11,6 @@ import os
 from .updater import check_for_update
 from .ui import AutoEXRPassSetupPanel, AutoEXRPassSetupErrorOperator, RENDER_OT_auto_exr_pass_setup
 
-classes = (AutoEXRPassSetupPanel, AutoEXRPassSetupErrorOperator, RENDER_OT_auto_exr_pass_setup)
-
 def render_filepath_set(scene):
     try:
         blend_file_dir = bpy.path.abspath('//')
@@ -60,6 +58,8 @@ def auto_exr_pass_setup():
 
     # Link nodes
     tree.links.new(render_layers_node.outputs['Image'], composite_node.inputs['Image'])
+
+classes = (AutoEXRPassSetupPanel, AutoEXRPassSetupErrorOperator, RENDER_OT_auto_exr_pass_setup)
 
 def register():
     for cls in classes:
