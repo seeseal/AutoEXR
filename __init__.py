@@ -7,6 +7,7 @@ bl_info = {
 }
 
 import bpy
+import os
 from .updater import check_for_update
 from .ui import AutoEXRPassSetupPanel, AutoEXRPassSetupErrorOperator, RENDER_OT_auto_exr_pass_setup
 
