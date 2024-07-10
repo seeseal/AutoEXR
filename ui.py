@@ -1,5 +1,5 @@
 import bpy
-from . import auto_exr_pass_setup  # Ensure the function is imported
+from . import auto_exr_pass_setup
 
 class AutoEXRPassSetupPanel(bpy.types.Panel):
     bl_label = "Auto EXR Pass Setup"
@@ -29,5 +29,5 @@ class RENDER_OT_auto_exr_pass_setup(bpy.types.Operator):
     bl_label = "Auto EXR Pass Setup"
 
     def execute(self, context):
-        auto_exr_pass_setup.auto_exr_pass_setup()  # Call the function with the full path
+        auto_exr_pass_setup.auto_exr_pass_setup()
         return {'FINISHED'}
